@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'index.dart';
+
 class ResultScreen extends StatelessWidget {
   String resultado;
   ResultScreen({required this.resultado}) : super();
@@ -78,8 +80,23 @@ class MyStatelessWidget extends StatelessWidget {
             ),
           ),
           Container(
-            color: Colors.red,
-            height: 50,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyHomePage()),
+                );
+              },
+              child: Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.only(top: 10.0),
+                  padding: const EdgeInsets.all(5.0),
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                  ),
+                  child: Text("Calcular")),
+            ),
           ),
         ],
       ),
@@ -104,30 +121,3 @@ class MyStatelessWidget extends StatelessWidget {
       return "";
   }
 }
-
-/* class ResultPage extends State<ResultScreen> {
-  String Data;
-  ResultPage({required this.Data}) : super();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Resultado"),
-      ),
-      body: _body(),
-    );
-  }
-
-  Widget _body() {
-    return Container(
-      child: Expanded(
-        child: Column(
-          children: [],
-        ),
-      ),
-    );
-  }
-
-  
-} */

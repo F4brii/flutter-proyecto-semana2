@@ -1,8 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:imc/Pages/resultado.dart';
 
-import 'Components/capaCuatro.dart';
 import 'Components/capaUno.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -19,10 +19,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Calculadora"),
+        title: Text("Calculadora IMC"),
       ),
       body: _body(),
-      backgroundColor: Colors.black,
     );
   }
 
@@ -40,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: const EdgeInsets.all(10.0),
                 padding: const EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.black,
                     borderRadius: BorderRadius.all(Radius.circular(15.0))),
                 alignment: Alignment.center,
                 child: Column(
@@ -110,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.all(5.0),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: Colors.black,
                         borderRadius: BorderRadius.all(Radius.circular(15.0))),
                     child: Column(
                       children: [
@@ -167,14 +166,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: const EdgeInsets.all(5.0),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                        color: Colors.grey,
+                        color: Colors.black,
                         borderRadius: BorderRadius.all(Radius.circular(15.0))),
                     child: Column(
                       children: [
                         Container(
                           margin: const EdgeInsets.only(top: 20, bottom: 10),
                           child: Text(
-                            "Estatura",
+                            "Edad",
                             style: Theme.of(context).textTheme.bodyText1,
                             textScaleFactor: 1.5,
                           ),
@@ -223,7 +222,28 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Container(
-            child: CapaCuatro(),
+            child: GestureDetector(
+              onTap: () {
+                double esta = this._value / 100;
+                double resultado = (this.peso / pow(esta, 2));
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResultScreen(
+                            resultado: resultado.toString(),
+                          )),
+                );
+              },
+              child: Container(
+                  alignment: Alignment.center,
+                  margin: const EdgeInsets.only(top: 10.0),
+                  padding: const EdgeInsets.all(5.0),
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                  ),
+                  child: Text("Calcular")),
+            ),
           )
         ],
       ),

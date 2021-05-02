@@ -14,7 +14,7 @@ class CapaUno extends StatelessWidget {
             padding: const EdgeInsets.all(5.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Colors.black,
                 borderRadius: BorderRadius.all(Radius.circular(15.0))),
             child: Image(
               image: AssetImage('male.png'),
@@ -28,7 +28,7 @@ class CapaUno extends StatelessWidget {
             padding: const EdgeInsets.all(5.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Colors.black,
                 borderRadius: BorderRadius.all(Radius.circular(15.0))),
             child: Image(
               image: AssetImage('female.png'),
